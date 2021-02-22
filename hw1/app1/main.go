@@ -39,7 +39,7 @@ func (e *ErrorWithTime) Error() string {
 	return fmt.Sprintf("error: %s time: %s\n", e.text, e.dateTime)
 }
 
-//функция деления 2 чисел float с обработкой исключения при делении на 0
+// функция деления 2 чисел float с обработкой исключения при делении на 0
 func customDivide(numberA float64, numberB float64) float64 {
 	// recovery for panic sit defer - starts BEFORE actual PANIC!!!! аналог except: python
 	defer func() {
@@ -51,19 +51,19 @@ func customDivide(numberA float64, numberB float64) float64 {
 	}()
 
 	if numberB == 0.0 {
-		//вызываем панику т.к. в случае с float результат = +inf
+		// вызываем панику т.к. в случае с float результат = +inf
 		panic("ОШИБКА делитель = 0!")
 	}
 
 	return numberA / numberB
 }
 
-//Функция записывает в файл 3 операнда а, б и результат целочисл. деления
-func dumpToFile(fileName string, nA, nB, res float64) {
+// Функция записывает в файл 3 операнда а, б и результат целочисл. деления
+func dumpToFile(fileName string, nA, nB, res float64) error {
 	// Пробуем создать файл
 	file, err := os.Create(fileName)
 	if err != nil {
-		log.Fatalf("Не могу создать файл: \n%v", err)
+		return err
 	}
 
 	// Не забываем закрыть файл при выходе из функции
@@ -75,29 +75,22 @@ func dumpToFile(fileName string, nA, nB, res float64) {
 	}()
 
 	n, err := fmt.Fprintf(file, "Делитель=%.4f\n", nA)
-
 	if err != nil {
-
-		log.Fatal(err)
+		return err
 	}
-
 	n, err = fmt.Fprintf(file, "Делимое=%.4f\n", nB)
-
 	if err != nil {
-
-		log.Fatal(err)
+		return err
 	}
-
 	n, err = fmt.Fprintf(file, "Частное=%.4f\n", res)
-
 	if err != nil {
-
-		log.Fatal(err)
+		return err
 	}
 
 	fmt.Println(n, "bytes written")
 	fmt.Println("done")
 
+	return nil
 }
 
 func main() {
@@ -123,8 +116,11 @@ func main() {
 
 	result := customDivide(aNumber, bNumber)
 
-	//функция создает файл и использует отложенный вызов для безопасного закрытия файла
-	dumpToFile(filename, aNumber, bNumber, result)
+	// функция создает файл и использует отложенный вызов для безопасного закрытия файла
+	err = dumpToFile(filename, aNumber, bNumber, result)
+	if err != nil {
+		log.Printf("Ошибка файла %v", err)
+	}
 
 	fmt.Println("result=", result)
 }
