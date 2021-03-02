@@ -6,6 +6,8 @@ github.com/pehks1980/testmod v0.0.1 h1:PAM2XW5swyi+6nq+s7nIH5EOkk8U1DaOQyYEfbKEW
 github.com/pehks1980/testmod v0.0.1/go.mod h1:+puZ5BPCHC2zTvloU3UArfeDbOoflXYPc7kFNa8CnSk=
 github.com/pehks1980/testmod v1.0.0 h1:oitbIZYL9gEfy9KGYwV1y5GACrWlCGr3o6MzR9bb79Y=
 github.com/pehks1980/testmod v1.0.0/go.mod h1:+puZ5BPCHC2zTvloU3UArfeDbOoflXYPc7kFNa8CnSk=
+github.com/pehks1980/testmod/v2 v2.0.0 h1:eAer+QI6+cqgym/n3HdejQk23FlP/jSSz2F2vlxQo4E=
+github.com/pehks1980/testmod/v2 v2.0.0/go.mod h1:/otr6zuORbnk9QmOETMW6d6G2NT+csYABuM8Rgf3S14=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasthttp v1.22.0 h1:OpwH5KDOJ9cS2bq8fD+KfT4IrksK0llvkHf4MZx42jQ=
