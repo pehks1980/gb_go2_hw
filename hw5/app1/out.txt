@@ -1,0 +1,393 @@
+pinging  /bin/ping -c 4 192.168.1.13
+pinging  /bin/ping -c 4 192.168.1.254
+pinging  /bin/ping -c 4 192.168.1.7
+pinging  /bin/ping -c 4 192.168.1.6
+pinging  /bin/ping -c 4 192.168.1.8
+pinging  /bin/ping -c 4 192.168.1.9
+pinging  /bin/ping -c 4 192.168.1.10
+pinging  /bin/ping -c 4 192.168.1.11
+pinging  /bin/ping -c 4 192.168.1.12
+pinging  /bin/ping -c 4 192.168.1.20
+pinging  /bin/ping -c 4 192.168.1.14
+pinging  /bin/ping -c 4 192.168.1.15
+pinging  /bin/ping -c 4 192.168.1.16
+pinging  /bin/ping -c 4 192.168.1.1
+pinging  /bin/ping -c 4 192.168.1.17
+pinging  /bin/ping -c 4 192.168.1.2
+pinging  /bin/ping -c 4 192.168.1.21
+pinging  /bin/ping -c 4 192.168.1.3
+pinging  /bin/ping -c 4 192.168.1.22
+pinging  /bin/ping -c 4 192.168.1.4
+pinging  /bin/ping -c 4 192.168.1.23
+pinging  /bin/ping -c 4 192.168.1.5
+pinging  /bin/ping -c 4 192.168.1.24
+pinging  /bin/ping -c 4 192.168.1.18
+pinging  /bin/ping -c 4 192.168.1.25
+pinging  /bin/ping -c 4 192.168.1.19
+pinging  /bin/ping -c 4 192.168.1.26
+pinging  /bin/ping -c 4 192.168.1.27
+pinging  /bin/ping -c 4 192.168.1.141
+pinging  /bin/ping -c 4 192.168.1.28
+pinging  /bin/ping -c 4 192.168.1.142
+pinging  /bin/ping -c 4 192.168.1.143
+pinging  /bin/ping -c 4 192.168.1.29
+pinging  /bin/ping -c 4 192.168.1.144
+pinging  /bin/ping -c 4 192.168.1.30
+pinging  /bin/ping -c 4 192.168.1.145
+pinging  /bin/ping -c 4 192.168.1.31
+pinging  /bin/ping -c 4 192.168.1.146
+pinging  /bin/ping -c 4 192.168.1.33
+pinging  /bin/ping -c 4 192.168.1.32
+pinging  /bin/ping -c 4 192.168.1.34
+pinging  /bin/ping -c 4 192.168.1.147
+pinging  /bin/ping -c 4 192.168.1.148
+pinging  /bin/ping -c 4 192.168.1.35
+pinging  /bin/ping -c 4 192.168.1.149
+pinging  /bin/ping -c 4 192.168.1.36
+pinging  /bin/ping -c 4 192.168.1.150
+pinging  /bin/ping -c 4 192.168.1.37
+pinging  /bin/ping -c 4 192.168.1.151
+pinging  /bin/ping -c 4 192.168.1.152
+pinging  /bin/ping -c 4 192.168.1.38
+pinging  /bin/ping -c 4 192.168.1.153
+pinging  /bin/ping -c 4 192.168.1.39
+pinging  /bin/ping -c 4 192.168.1.154
+pinging  /bin/ping -c 4 192.168.1.40
+pinging  /bin/ping -c 4 192.168.1.155
+pinging  /bin/ping -c 4 192.168.1.41
+pinging  /bin/ping -c 4 192.168.1.156
+pinging  /bin/ping -c 4 192.168.1.42
+pinging  /bin/ping -c 4 192.168.1.157
+pinging  /bin/ping -c 4 192.168.1.43
+pinging  /bin/ping -c 4 192.168.1.158
+pinging  /bin/ping -c 4 192.168.1.44
+pinging  /bin/ping -c 4 192.168.1.159
+pinging  /bin/ping -c 4 192.168.1.45
+pinging  /bin/ping -c 4 192.168.1.160
+pinging  /bin/ping -c 4 192.168.1.46
+pinging  /bin/ping -c 4 192.168.1.161
+pinging  /bin/ping -c 4 192.168.1.47
+pinging  /bin/ping -c 4 192.168.1.162
+pinging  /bin/ping -c 4 192.168.1.48
+pinging  /bin/ping -c 4 192.168.1.163
+pinging  /bin/ping -c 4 192.168.1.49
+pinging  /bin/ping -c 4 192.168.1.164
+pinging  /bin/ping -c 4 192.168.1.50
+pinging  /bin/ping -c 4 192.168.1.165
+pinging  /bin/ping -c 4 192.168.1.51
+pinging  /bin/ping -c 4 192.168.1.166
+pinging  /bin/ping -c 4 192.168.1.52
+pinging  /bin/ping -c 4 192.168.1.167
+pinging  /bin/ping -c 4 192.168.1.53
+pinging  /bin/ping -c 4 192.168.1.168
+pinging  /bin/ping -c 4 192.168.1.54
+pinging  /bin/ping -c 4 192.168.1.169
+pinging  /bin/ping -c 4 192.168.1.55
+pinging  /bin/ping -c 4 192.168.1.170
+pinging  /bin/ping -c 4 192.168.1.56
+pinging  /bin/ping -c 4 192.168.1.171
+pinging  /bin/ping -c 4 192.168.1.57
+pinging  /bin/ping -c 4 192.168.1.172
+pinging  /bin/ping -c 4 192.168.1.58
+pinging  /bin/ping -c 4 192.168.1.173
+pinging  /bin/ping -c 4 192.168.1.59
+pinging  /bin/ping -c 4 192.168.1.174
+pinging  /bin/ping -c 4 192.168.1.60
+pinging  /bin/ping -c 4 192.168.1.175
+pinging  /bin/ping -c 4 192.168.1.61
+pinging  /bin/ping -c 4 192.168.1.176
+pinging  /bin/ping -c 4 192.168.1.62
+pinging  /bin/ping -c 4 192.168.1.177
+pinging  /bin/ping -c 4 192.168.1.63
+pinging  /bin/ping -c 4 192.168.1.178
+pinging  /bin/ping -c 4 192.168.1.64
+pinging  /bin/ping -c 4 192.168.1.179
+pinging  /bin/ping -c 4 192.168.1.65
+pinging  /bin/ping -c 4 192.168.1.180
+pinging  /bin/ping -c 4 192.168.1.66
+pinging  /bin/ping -c 4 192.168.1.181
+pinging  /bin/ping -c 4 192.168.1.67
+pinging  /bin/ping -c 4 192.168.1.182
+pinging  /bin/ping -c 4 192.168.1.68
+pinging  /bin/ping -c 4 192.168.1.183
+pinging  /bin/ping -c 4 192.168.1.69
+pinging  /bin/ping -c 4 192.168.1.184
+pinging  /bin/ping -c 4 192.168.1.70
+pinging  /bin/ping -c 4 192.168.1.185
+pinging  /bin/ping -c 4 192.168.1.71
+pinging  /bin/ping -c 4 192.168.1.186
+pinging  /bin/ping -c 4 192.168.1.187
+pinging  /bin/ping -c 4 192.168.1.72
+pinging  /bin/ping -c 4 192.168.1.188
+pinging  /bin/ping -c 4 192.168.1.73
+pinging  /bin/ping -c 4 192.168.1.189
+pinging  /bin/ping -c 4 192.168.1.74
+pinging  /bin/ping -c 4 192.168.1.190
+pinging  /bin/ping -c 4 192.168.1.75
+pinging  /bin/ping -c 4 192.168.1.191
+pinging  /bin/ping -c 4 192.168.1.76
+pinging  /bin/ping -c 4 192.168.1.192
+pinging  /bin/ping -c 4 192.168.1.77
+pinging  /bin/ping -c 4 192.168.1.193
+pinging  /bin/ping -c 4 192.168.1.78
+pinging  /bin/ping -c 4 192.168.1.194
+pinging  /bin/ping -c 4 192.168.1.79
+pinging  /bin/ping -c 4 192.168.1.195
+pinging  /bin/ping -c 4 192.168.1.80
+pinging  /bin/ping -c 4 192.168.1.196
+pinging  /bin/ping -c 4 192.168.1.81
+pinging  /bin/ping -c 4 192.168.1.197
+pinging  /bin/ping -c 4 192.168.1.82
+pinging  /bin/ping -c 4 192.168.1.198
+pinging  /bin/ping -c 4 192.168.1.83
+pinging  /bin/ping -c 4 192.168.1.199
+pinging  /bin/ping -c 4 192.168.1.84
+pinging  /bin/ping -c 4 192.168.1.200
+pinging  /bin/ping -c 4 192.168.1.85
+pinging  /bin/ping -c 4 192.168.1.201
+pinging  /bin/ping -c 4 192.168.1.86
+pinging  /bin/ping -c 4 192.168.1.202
+pinging  /bin/ping -c 4 192.168.1.87
+pinging  /bin/ping -c 4 192.168.1.203
+pinging  /bin/ping -c 4 192.168.1.88
+pinging  /bin/ping -c 4 192.168.1.204
+pinging  /bin/ping -c 4 192.168.1.89
+pinging  /bin/ping -c 4 192.168.1.205
+pinging  /bin/ping -c 4 192.168.1.90
+pinging  /bin/ping -c 4 192.168.1.206
+pinging  /bin/ping -c 4 192.168.1.91
+pinging  /bin/ping -c 4 192.168.1.207
+pinging  /bin/ping -c 4 192.168.1.92
+pinging  /bin/ping -c 4 192.168.1.208
+pinging  /bin/ping -c 4 192.168.1.93
+pinging  /bin/ping -c 4 192.168.1.209
+pinging  /bin/ping -c 4 192.168.1.94
+pinging  /bin/ping -c 4 192.168.1.210
+pinging  /bin/ping -c 4 192.168.1.95
+pinging  /bin/ping -c 4 192.168.1.211
+pinging  /bin/ping -c 4 192.168.1.96
+pinging  /bin/ping -c 4 192.168.1.212
+pinging  /bin/ping -c 4 192.168.1.97
+pinging  /bin/ping -c 4 192.168.1.213
+pinging  /bin/ping -c 4 192.168.1.98
+pinging  /bin/ping -c 4 192.168.1.214
+pinging  /bin/ping -c 4 192.168.1.99
+pinging  /bin/ping -c 4 192.168.1.215
+pinging  /bin/ping -c 4 192.168.1.100
+pinging  /bin/ping -c 4 192.168.1.216
+pinging  /bin/ping -c 4 192.168.1.101
+pinging  /bin/ping -c 4 192.168.1.217
+pinging  /bin/ping -c 4 192.168.1.102
+pinging  /bin/ping -c 4 192.168.1.218
+pinging  /bin/ping -c 4 192.168.1.103
+pinging  /bin/ping -c 4 192.168.1.105
+pinging  /bin/ping -c 4 192.168.1.219
+pinging  /bin/ping -c 4 192.168.1.107
+pinging  /bin/ping -c 4 192.168.1.108
+pinging  /bin/ping -c 4 192.168.1.109
+pinging  /bin/ping -c 4 192.168.1.110
+pinging  /bin/ping -c 4 192.168.1.111
+pinging  /bin/ping -c 4 192.168.1.112
+pinging  /bin/ping -c 4 192.168.1.113
+pinging  /bin/ping -c 4 192.168.1.114
+pinging  /bin/ping -c 4 192.168.1.115
+pinging  /bin/ping -c 4 192.168.1.116
+pinging  /bin/ping -c 4 192.168.1.117
+pinging  /bin/ping -c 4 192.168.1.118
+pinging  /bin/ping -c 4 192.168.1.119
+pinging  /bin/ping -c 4 192.168.1.120
+pinging  /bin/ping -c 4 192.168.1.121
+pinging  /bin/ping -c 4 192.168.1.122
+pinging  /bin/ping -c 4 192.168.1.123
+pinging  /bin/ping -c 4 192.168.1.124
+pinging  /bin/ping -c 4 192.168.1.125
+pinging  /bin/ping -c 4 192.168.1.126
+pinging  /bin/ping -c 4 192.168.1.127
+pinging  /bin/ping -c 4 192.168.1.128
+pinging  /bin/ping -c 4 192.168.1.129
+pinging  /bin/ping -c 4 192.168.1.130
+pinging  /bin/ping -c 4 192.168.1.131
+pinging  /bin/ping -c 4 192.168.1.132
+pinging  /bin/ping -c 4 192.168.1.133
+pinging  /bin/ping -c 4 192.168.1.134
+pinging  /bin/ping -c 4 192.168.1.135
+pinging  /bin/ping -c 4 192.168.1.136
+pinging  /bin/ping -c 4 192.168.1.137
+pinging  /bin/ping -c 4 192.168.1.138
+pinging  /bin/ping -c 4 192.168.1.139
+pinging  /bin/ping -c 4 192.168.1.104
+pinging  /bin/ping -c 4 192.168.1.140
+pinging  /bin/ping -c 4 192.168.1.220
+pinging  /bin/ping -c 4 192.168.1.221
+pinging  /bin/ping -c 4 192.168.1.222
+pinging  /bin/ping -c 4 192.168.1.106
+pinging  /bin/ping -c 4 192.168.1.223
+pinging  /bin/ping -c 4 192.168.1.224
+pinging  /bin/ping -c 4 192.168.1.225
+pinging  /bin/ping -c 4 192.168.1.226
+pinging  /bin/ping -c 4 192.168.1.227
+pinging  /bin/ping -c 4 192.168.1.228
+pinging  /bin/ping -c 4 192.168.1.229
+pinging  /bin/ping -c 4 192.168.1.231
+pinging  /bin/ping -c 4 192.168.1.232
+pinging  /bin/ping -c 4 192.168.1.233
+pinging  /bin/ping -c 4 192.168.1.237
+pinging  /bin/ping -c 4 192.168.1.238
+pinging  /bin/ping -c 4 192.168.1.239
+pinging  /bin/ping -c 4 192.168.1.242
+pinging  /bin/ping -c 4 192.168.1.243
+pinging  /bin/ping -c 4 192.168.1.244
+pinging  /bin/ping -c 4 192.168.1.246
+pinging  /bin/ping -c 4 192.168.1.247
+pinging  /bin/ping -c 4 192.168.1.248
+pinging  /bin/ping -c 4 192.168.1.251
+pinging  /bin/ping -c 4 192.168.1.252
+pinging  /bin/ping -c 4 192.168.1.253
+pinging  /bin/ping -c 4 192.168.1.230
+pinging  /bin/ping -c 4 192.168.1.234
+pinging  /bin/ping -c 4 192.168.1.235
+pinging  /bin/ping -c 4 192.168.1.236
+pinging  /bin/ping -c 4 192.168.1.240
+pinging  /bin/ping -c 4 192.168.1.241
+pinging  /bin/ping -c 4 192.168.1.249
+pinging  /bin/ping -c 4 192.168.1.245
+pinging  /bin/ping -c 4 192.168.1.250
+PING 192.168.1.102 (192.168.1.102) 56(84) bytes of data.
+64 bytes from 192.168.1.102: icmp_seq=1 ttl=255 time=3.51 ms
+64 bytes from 192.168.1.102: icmp_seq=2 ttl=255 time=4.00 ms
+64 bytes from 192.168.1.102: icmp_seq=3 ttl=255 time=4.41 ms
+64 bytes from 192.168.1.102: icmp_seq=4 ttl=255 time=2.73 ms
+
+--- 192.168.1.102 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 2.726/3.661/4.411/0.627 ms
+
+PING 192.168.1.107 (192.168.1.107) 56(84) bytes of data.
+64 bytes from 192.168.1.107: icmp_seq=1 ttl=128 time=2.44 ms
+64 bytes from 192.168.1.107: icmp_seq=2 ttl=128 time=3.64 ms
+64 bytes from 192.168.1.107: icmp_seq=3 ttl=128 time=4.37 ms
+64 bytes from 192.168.1.107: icmp_seq=4 ttl=128 time=2.47 ms
+
+--- 192.168.1.107 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 2.441/3.230/4.372/0.818 ms
+
+PING 192.168.1.108 (192.168.1.108) 56(84) bytes of data.
+64 bytes from 192.168.1.108: icmp_seq=1 ttl=128 time=2.86 ms
+64 bytes from 192.168.1.108: icmp_seq=2 ttl=128 time=2.41 ms
+64 bytes from 192.168.1.108: icmp_seq=3 ttl=128 time=2.67 ms
+64 bytes from 192.168.1.108: icmp_seq=4 ttl=128 time=4.98 ms
+
+--- 192.168.1.108 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 2.408/3.229/4.979/1.022 ms
+
+PING 192.168.1.101 (192.168.1.101) 56(84) bytes of data.
+64 bytes from 192.168.1.101: icmp_seq=1 ttl=255 time=24.7 ms
+64 bytes from 192.168.1.101: icmp_seq=2 ttl=255 time=58.8 ms
+64 bytes from 192.168.1.101: icmp_seq=3 ttl=255 time=2.14 ms
+64 bytes from 192.168.1.101: icmp_seq=4 ttl=255 time=1.92 ms
+
+--- 192.168.1.101 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.915/21.885/58.789/23.228 ms
+
+PING 192.168.1.103 (192.168.1.103) 56(84) bytes of data.
+64 bytes from 192.168.1.103: icmp_seq=1 ttl=255 time=19.4 ms
+64 bytes from 192.168.1.103: icmp_seq=2 ttl=255 time=54.1 ms
+64 bytes from 192.168.1.103: icmp_seq=3 ttl=255 time=3.18 ms
+64 bytes from 192.168.1.103: icmp_seq=4 ttl=255 time=3.47 ms
+
+--- 192.168.1.103 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 3.182/20.046/54.117/20.738 ms
+
+PING 192.168.1.202 (192.168.1.202) 56(84) bytes of data.
+64 bytes from 192.168.1.202: icmp_seq=1 ttl=64 time=0.861 ms
+64 bytes from 192.168.1.202: icmp_seq=2 ttl=64 time=23.1 ms
+64 bytes from 192.168.1.202: icmp_seq=3 ttl=64 time=43.6 ms
+64 bytes from 192.168.1.202: icmp_seq=4 ttl=64 time=0.840 ms
+
+--- 192.168.1.202 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 0.840/17.118/43.636/17.809 ms
+
+PING 192.168.1.200 (192.168.1.200) 56(84) bytes of data.
+64 bytes from 192.168.1.200: icmp_seq=1 ttl=64 time=1.50 ms
+64 bytes from 192.168.1.200: icmp_seq=2 ttl=64 time=19.8 ms
+64 bytes from 192.168.1.200: icmp_seq=3 ttl=64 time=40.0 ms
+64 bytes from 192.168.1.200: icmp_seq=4 ttl=64 time=55.9 ms
+
+--- 192.168.1.200 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 1.504/29.319/55.933/20.537 ms
+
+PING 192.168.1.201 (192.168.1.201) 56(84) bytes of data.
+64 bytes from 192.168.1.201: icmp_seq=1 ttl=128 time=2.22 ms
+64 bytes from 192.168.1.201: icmp_seq=2 ttl=128 time=21.6 ms
+64 bytes from 192.168.1.201: icmp_seq=3 ttl=128 time=42.7 ms
+64 bytes from 192.168.1.201: icmp_seq=4 ttl=128 time=57.5 ms
+
+--- 192.168.1.201 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 2.222/31.039/57.544/20.966 ms
+
+PING 192.168.1.100 (192.168.1.100) 56(84) bytes of data.
+64 bytes from 192.168.1.100: icmp_seq=1 ttl=64 time=194 ms
+64 bytes from 192.168.1.100: icmp_seq=2 ttl=64 time=82.8 ms
+64 bytes from 192.168.1.100: icmp_seq=3 ttl=64 time=105 ms
+64 bytes from 192.168.1.100: icmp_seq=4 ttl=64 time=119 ms
+
+--- 192.168.1.100 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 82.791/125.091/194.069/41.847 ms
+
+PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
+64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=44.1 ms
+64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=66.3 ms
+64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=75.3 ms
+64 bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.726 ms
+
+--- 192.168.1.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 0.726/46.606/75.255/28.816 ms
+
+PING 192.168.1.250 (192.168.1.250) 56(84) bytes of data.
+64 bytes from 192.168.1.250: icmp_seq=1 ttl=255 time=16.2 ms
+64 bytes from 192.168.1.250: icmp_seq=2 ttl=255 time=38.3 ms
+64 bytes from 192.168.1.250: icmp_seq=3 ttl=255 time=47.3 ms
+64 bytes from 192.168.1.250: icmp_seq=4 ttl=255 time=45.9 ms
+
+--- 192.168.1.250 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 16.154/36.918/47.340/12.477 ms
+
+PING 192.168.1.114 (192.168.1.114) 56(84) bytes of data.
+64 bytes from 192.168.1.114: icmp_seq=1 ttl=64 time=0.041 ms
+64 bytes from 192.168.1.114: icmp_seq=2 ttl=64 time=0.034 ms
+64 bytes from 192.168.1.114: icmp_seq=3 ttl=64 time=0.025 ms
+64 bytes from 192.168.1.114: icmp_seq=4 ttl=64 time=0.088 ms
+
+--- 192.168.1.114 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3071ms
+rtt min/avg/max/mdev = 0.025/0.047/0.088/0.024 ms
+
+PING 192.168.1.230 (192.168.1.230) 56(84) bytes of data.
+64 bytes from 192.168.1.230: icmp_seq=1 ttl=64 time=666 ms
+64 bytes from 192.168.1.230: icmp_seq=2 ttl=64 time=689 ms
+64 bytes from 192.168.1.230: icmp_seq=3 ttl=64 time=420 ms
+64 bytes from 192.168.1.230: icmp_seq=4 ttl=64 time=265 ms
+
+--- 192.168.1.230 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3000ms
+rtt min/avg/max/mdev = 264.616/509.909/689.283/176.505 ms
+
+PING 192.168.1.112 (192.168.1.112) 56(84) bytes of data.
+64 bytes from 192.168.1.112: icmp_seq=3 ttl=64 time=536 ms
+64 bytes from 192.168.1.112: icmp_seq=4 ttl=64 time=352 ms
+
+--- 192.168.1.112 ping statistics ---
+4 packets transmitted, 2 received, 50% packet loss, time 3028ms
+rtt min/avg/max/mdev = 352.148/444.267/536.387/92.119 ms
+
+Пингование завершено
