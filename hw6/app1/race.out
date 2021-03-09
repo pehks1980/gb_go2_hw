@@ -1,0 +1,972 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c00011c180 by goroutine 8:
+  runtime.mapaccess2_fast64()
+      /usr/local/go/src/runtime/map_fast64.go:52 +0x0
+  main.(*Set).Has()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:61 +0xde
+  main.checkNMultiply()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x96
+  main.main.func1()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x99
+
+Previous write at 0x00c00011c180 by goroutine 7:
+  runtime.mapassign_fast64()
+      /usr/local/go/src/runtime/map_fast64.go:92 +0x0
+  main.(*Set).AddNoLock()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:46 +0x2d7
+  main.checkNMultiply()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:89 +0x2b9
+  main.main.func1()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x99
+
+Goroutine 8 (running) created at:
+  main.main()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e6
+
+Goroutine 7 (finished) created at:
+  main.main()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e6
+==================
+==================
+WARNING: DATA RACE
+Write at 0x00c000168468 by goroutine 38:
+  main.(*Set).AddNoLock()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:46 +0x2ec
+  main.checkNMultiply()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:89 +0x2b9
+  main.main.func1()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x99
+
+Previous write at 0x00c000168468 by goroutine 35:
+  main.(*Set).AddNoLock()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:46 +0x2ec
+  main.checkNMultiply()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:89 +0x2b9
+  main.main.func1()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x99
+
+Goroutine 38 (running) created at:
+  main.main()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e6
+
+Goroutine 35 (finished) created at:
+  main.main()
+      /home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e6
+==================
+fatal error: concurrent map read and map write
+
+goroutine 98 [running]:
+runtime.throw(0x562ef3, 0x21)
+	/usr/local/go/src/runtime/panic.go:1116 +0x72 fp=0xc00014d598 sp=0xc00014d568 pc=0x464932
+runtime.mapaccess2_fast64(0x5408c0, 0xc00011c180, 0x4d, 0xc00013a008, 0xc00014d610)
+	/usr/local/go/src/runtime/map_fast64.go:61 +0x1e5 fp=0xc00014d5c0 sp=0xc00014d598 pc=0x442685
+main.(*Set).Has(0xc000112200, 0x4d, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:61 +0xdf fp=0xc00014d658 sp=0xc00014d5c0 pc=0x52f01f
+main.checkNMultiply(0x4d, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97 fp=0xc00014d718 sp=0xc00014d658 pc=0x52f177
+main.main.func1(0xc000134020, 0xc000112200, 0x4d)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a fp=0xc00014d7c8 sp=0xc00014d718 pc=0x52fcba
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1374 +0x1 fp=0xc00014d7d0 sp=0xc00014d7c8 pc=0x499601
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 1 [semacquire]:
+sync.runtime_Semacquire(0xc000134028)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc000134020)
+	/usr/local/go/src/sync/waitgroup.go:130 +0xe5
+main.main()
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:146 +0x31e
+
+goroutine 52 [runnable]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x10100000000, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x22, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x22, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x22)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 53 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x10900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x23, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x23, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x23)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 54 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x11100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x24, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x24, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x24)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 55 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x11900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x25, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x25, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x25)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 56 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x12100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x26, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x26, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x26)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 57 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x12900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x27, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x27, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x27)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 58 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x13100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x28, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x28, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x28)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 59 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x13900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x29, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x29, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x29)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 60 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x14100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2a, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2a, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2a)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 61 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x14900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2b, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2b, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2b)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 62 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x15100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2c, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2c, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2c)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 63 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x15900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2d, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2d, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2d)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 64 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x16100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2e, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2e, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2e)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 65 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x16900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x2f, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x2f, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x2f)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 66 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x17100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x30, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x30, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x30)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 67 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x17900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x31, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x31, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x31)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 68 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x18100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x32, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x32, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x32)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 69 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x18900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x33, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x33, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x33)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 70 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x19100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x34, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x34, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x34)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 71 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x19900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x35, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x35, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x35)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 72 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1a100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x36, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x36, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x36)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 73 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1a900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x37, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x37, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x37)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 74 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1b100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x38, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x38, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x38)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 75 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1b900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x39, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x39, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x39)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 76 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1c100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3a, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3a, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3a)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 77 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1c900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3b, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3b, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3b)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 78 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1d100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3c, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3c, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3c)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 79 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1e900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3d, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3d, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3d)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 80 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1d900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3e, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3e, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3e)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 81 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1e100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x3f, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x3f, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x3f)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 82 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1f100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x40, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x40, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x40)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 83 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x1f900000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x41, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x41, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x41)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 84 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x20100000100, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x42, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x42, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x42)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 85 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x20900000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x43, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x43, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x43)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 86 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x21100000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x44, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x44, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x44)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 87 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x21900000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x45, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x45, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x45)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 88 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x22100000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x46, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x46, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x46)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 89 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x22900000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x47, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x47, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x47)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 90 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x23100000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x48, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x48, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x48)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 91 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x23900000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x49, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x49, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x49)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 92 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x24100000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x4a, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x4a, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x4a)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 93 [semacquire]:
+sync.runtime_SemacquireMutex(0xc000112204, 0x24900000200, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:138 +0x1c5
+sync.(*Mutex).Lock(0xc000112200)
+	/usr/local/go/src/sync/mutex.go:81 +0x85
+main.(*Set).Has(0xc000112200, 0x4b, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:59 +0x65
+main.checkNMultiply(0x4b, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:78 +0x97
+main.main.func1(0xc000134020, 0xc000112200, 0x4b)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 104 [runnable]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:61 +0x45
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc00016c000, 0x23, 0x40, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc00016c000, 0x23, 0x40, 0x2, 0x2, 0x1859324)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x563695, 0x23, 0xc0001406e8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x53, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:86 +0x225
+main.main.func1(0xc000134020, 0xc000112200, 0x53)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 105 [semacquire]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:61 +0x45
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x47aae0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc0000bc030, 0x2b, 0x30, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc0000bc030, 0x2b, 0x30, 0x2, 0x2, 0x1859324)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x564605, 0x2a, 0xc000147ec8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x54, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:94 +0x3ca
+main.main.func1(0xc000134020, 0xc000112200, 0x54)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 106 [semacquire]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:61 +0x45
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x47aae0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc00016c040, 0x23, 0x40, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc00016c040, 0x23, 0x40, 0x2, 0x2, 0x1859324)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x563695, 0x23, 0xc0001456e8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x55, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:86 +0x225
+main.main.func1(0xc000134020, 0xc000112200, 0x55)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 107 [semacquire]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:61 +0x45
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x47aae0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc000130180, 0x2b, 0x30, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc000130180, 0x2b, 0x30, 0x2, 0x2, 0x1859324)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x564605, 0x2a, 0xc000037ec8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x56, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:94 +0x3ca
+main.main.func1(0xc000134020, 0xc000112200, 0x56)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 109 [semacquire]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:61 +0x45
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc0000bc000, 0x2b, 0x30, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc0000bc000, 0x2b, 0x30, 0x2, 0x2, 0x1859324)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x564605, 0x2a, 0xc0001446c8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x58, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:94 +0x3ca
+main.main.func1(0xc000134020, 0xc000112200, 0x58)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 110 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x59)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 111 [runnable]:
+internal/poll.runtime_Semacquire(0xc00013806c)
+	/usr/local/go/src/runtime/sema.go:60 +0x54
+internal/poll.(*fdMutex).rwlock(0xc000138060, 0x0, 0x47aae0)
+	/usr/local/go/src/internal/poll/fd_mutex.go:154 +0xf3
+internal/poll.(*FD).writeLock(...)
+	/usr/local/go/src/internal/poll/fd_mutex.go:239
+internal/poll.(*FD).Write(0xc000138060, 0xc0000d2000, 0x23, 0x40, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:254 +0x74
+os.(*File).write(...)
+	/usr/local/go/src/os/file_posix.go:48
+os.(*File).Write(0xc000136008, 0xc0000d2000, 0x23, 0x40, 0x2, 0x2, 0x5408c0)
+	/usr/local/go/src/os/file.go:173 +0xb2
+fmt.Fprintf(0x584a00, 0xc000136008, 0x563695, 0x23, 0xc0000b6ee8, 0x2, 0x2, 0x0, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:205 +0xd4
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+main.checkNMultiply(0x5a, 0xc000112200, 0x0, 0x0)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:86 +0x225
+main.main.func1(0xc000134020, 0xc000112200, 0x5a)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:130 +0x9a
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 112 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x5b)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 113 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x5c)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 114 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x5d)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 115 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x5e)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 116 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x5f)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 117 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x60)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 118 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x61)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 119 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x62)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 120 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x63)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 121 [runnable]:
+main.main.func1(0xc000134020, 0xc000112200, 0x64)
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:128 +0x2e7
+
+goroutine 122 [sleep]:
+time.Sleep(0xf4240)
+	/usr/local/go/src/runtime/time.go:188 +0xbf
+main.main.func2()
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:139 +0x48
+created by main.main
+	/home/user/go/go2hw/gb_go2_hw/hw6/app1/main.go:137 +0x30d
+exit status 2
