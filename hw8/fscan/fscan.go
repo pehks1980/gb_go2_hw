@@ -46,11 +46,10 @@ import (
 	Logger "github.com/pehks1980/gb_go2_hw/hw8/logger"
 	"hash/crc32"
 	"io"
-	"io/ioutil"
+
 	"os"
 	"sync"
 )
-
 
 // FileElem is структура найденного файла.
 type FileElem struct {
@@ -69,7 +68,7 @@ type RWSet struct {
 	sync.RWMutex
 	// mm элемент хеш таблицы хранит ключ (хеш)
 	// и значение структуру FileElem
-	MM            map[string]FileElem
+	MM map[string]FileElem
 	// FilesHaveDubs счетчик файлов которые имеют дубли
 	FilesHaveDubs int64
 }
@@ -77,7 +76,7 @@ type RWSet struct {
 // NewRWSet - конструктор Хештаблицы FileElem
 func NewRWSet() *RWSet {
 	return &RWSet{
-		MM: map[string]FileElem{},
+		MM:            map[string]FileElem{},
 		FilesHaveDubs: 0,
 	}
 }
@@ -109,6 +108,7 @@ func (s *RWSet) Has(nameMM string) bool {
 	_, ok := s.MM[nameMM]
 	return ok
 }
+
 // GetHash вычисление хеш сrc32
 // по значениям размера имени и хеша md5 в случае -ds
 func GetHash(fileSz int64, fileName string, fileHash string) (string, error) {
@@ -119,6 +119,7 @@ func GetHash(fileSz int64, fileName string, fileHash string) (string, error) {
 	//Logger.ErrorFileLogger.Println("hello from Gethash")
 	return strHash, nil
 }
+
 // GetFileMd5Hash - вычисления md5 хеш файла для -ds
 // filePath - имя файла для вычисления его md5
 func GetFileMd5Hash(filePath string) (string, error) {
@@ -130,11 +131,12 @@ func GetFileMd5Hash(filePath string) (string, error) {
 
 	hash := md5.New()
 	if _, err := io.Copy(hash, file); err != nil {
-		Logger.ErrorLogger.Printf("Error while calculate md5 hash %v\n",err)
+		Logger.ErrorLogger.Printf("Error while calculate md5 hash %v\n", err)
 		return "", err
 	}
 	return hex.EncodeToString(hash.Sum(nil)), nil
 }
+
 // DeleteDup физическое удаление дупликата
 // dub - полное имя файла под удаление из фс
 func DeleteDup(dub string) error {
@@ -145,18 +147,27 @@ func DeleteDup(dub string) error {
 	}
 	return nil
 }
+
 // IOReadDir - сканирование папки и поиск дублей файлов
 // root  - каталог где искать
 // fileSet - указатель на хеш таблицу найденных файлов
 // deepScan - ключ программы делать и учитывать md5 файлов
 func IOReadDir(root string, fileSet *RWSet, deepScan *bool) ([]string, error) {
 	var files []string
-	fileInfo, err := ioutil.ReadDir(root)
+
+	fileDir, err := os.ReadDir(root)
 	if err != nil {
+		Logger.InfoFileLogger.Printf("Problems with Reading dir: %s %v", root, err)
 		return files, err
+		//log.Fatal(err)
 	}
 
-	for _, file := range fileInfo {
+	/*fileInfo, err := ioutil.ReadDir(root)
+	if err != nil {
+		return files, err
+	}*/
+
+	for _, file := range fileDir {
 		if file.IsDir() {
 			files = append(files, file.Name())
 			Logger.InfoFileLogger.Printf("Reading dir: %s", file.Name())
@@ -164,13 +175,27 @@ func IOReadDir(root string, fileSet *RWSet, deepScan *bool) ([]string, error) {
 		} else {
 
 			fullFilePath := fmt.Sprintf("%s/%s", root, file.Name())
+
 			var NameHash string
+
+			statFile, err := os.Stat(fullFilePath)
+			if err != nil {
+				Logger.InfoFileLogger.Printf("Problem with reading file: %s %v", fullFilePath, err)
+				continue
+			}
+			if statFile.IsDir() {
+				continue
+			}
 
 			if *deepScan {
 				fileMd5Hash, _ := GetFileMd5Hash(fullFilePath)
-				NameHash, _ = GetHash(file.Size(), file.Name(), fileMd5Hash)
+				if err != nil {
+					Logger.InfoFileLogger.Printf("Problem with md5: hash %s %v", fullFilePath, err)
+					continue
+				}
+				NameHash, _ = GetHash(statFile.Size(), file.Name(), fileMd5Hash)
 			} else {
-				NameHash, _ = GetHash(file.Size(), file.Name(), "")
+				NameHash, _ = GetHash(statFile.Size(), file.Name(), "")
 			}
 
 			if fileSet.Has(NameHash) {
@@ -184,19 +209,19 @@ func IOReadDir(root string, fileSet *RWSet, deepScan *bool) ([]string, error) {
 					fileMd5Hash, _ := GetFileMd5Hash(fullFilePath)
 					elemMM = &FileElem{
 						FullPath: fullFilePath,
-						Filesize: file.Size(),
+						Filesize: statFile.Size(),
 						FileHash: fileMd5Hash,
 						DubPaths: nil,
 					}
 				} else {
 					elemMM = &FileElem{
 						FullPath: fullFilePath,
-						Filesize: file.Size(),
+						Filesize: statFile.Size(),
 						FileHash: "",
 						DubPaths: nil,
 					}
 				}
-				NameHash, _ := GetHash(file.Size(), file.Name(), elemMM.FileHash)
+				NameHash, _ := GetHash(statFile.Size(), file.Name(), elemMM.FileHash)
 				fileSet.Add(NameHash, *elemMM)
 			}
 
@@ -204,5 +229,3 @@ func IOReadDir(root string, fileSet *RWSet, deepScan *bool) ([]string, error) {
 	}
 	return files, nil
 }
-
-

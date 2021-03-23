@@ -7,6 +7,7 @@ import (
 	Logger "github.com/pehks1980/gb_go2_hw/hw8/logger"
 	"log"
 	"os"
+	"runtime/trace"
 	"sync"
 	"sync/atomic"
 )
@@ -22,10 +23,22 @@ var (
 	fileSet = fscan.NewRWSet()
 	// счетчик гоу поточков
 	goProcCounter int64 = 1
+	// флаг запускает трассировку
+	// cделать и поглядеть трассировку:
+	// GOMAXPROCS=1 go run main.go > trace.out
+	// go tool trace trace.out
+	//
+	TraceOn bool = false
 )
 
 // main основная функция работы утилиты
 func main() {
+
+	// trace code
+	if TraceOn {
+		trace.Start(os.Stderr)
+		defer trace.Stop()
+	}
 
 	err := Logger.InitLoggers("log.txt")
 	if err != nil {

@@ -2,25 +2,35 @@ user@user-HP-Pavilion-17-Notebook-PC:~/go/go2hw/gb_go2_hw/hw8$ go test -bench=. 
 goos: linux
 goarch: amd64
 pkg: github.com/pehks1980/gb_go2_hw/hw8
-BenchmarkScanDir1CPU/4-4             301           7093925 ns/op         2133176 B/op       9689 allocs/op
-BenchmarkScanDir1CPU_1/4-4             1        44327935307 ns/op       14002671384 B/op        74670750 allocs/op
+BenchmarkScanDir1CPU/4-4             301           7093925 ns/op         2133176 B/op         9689 allocs/op
+BenchmarkScanDir1CPU_1/4-4             1       44327935307 ns/op     14002671384 B/op     74670750 allocs/op
 ERROR: 2021/03/18 01:49:51.537618 main.go:167: Error reading dirs open /home/user/.dbus: permission denied
-BenchmarkScanDir4CPU/4-4             379           4998628 ns/op         1747633 B/op       8213 allocs/op
-BenchmarkScanDir4CPU_1/4-4             1        49332378533 ns/op       14639314496 B/op        78774481 allocs/op
+BenchmarkScanDir4CPU/4-4             379           4998628 ns/op         1747633 B/op         8213 allocs/op
+BenchmarkScanDir4CPU_1/4-4             1       49332378533 ns/op     14639314496 B/op     78774481 allocs/op
 PASS
-ok      github.com/pehks1980/gb_go2_hw/hw8      104.675s
 
-user@user-HP-Pavilion-17-Notebook-PC:~/go/go2hw/gb_go2_hw/hw8$ go test -bench=. -benchmem
-goos: linux
-goarch: amd64
-pkg: github.com/pehks1980/gb_go2_hw/hw8
-BenchmarkScanDir1CPU/4-4             244           7436106 ns/op         2313185 B/op      10281 allocs/op
-BenchmarkScanDir1CPU_1/4-4             1        37382631294 ns/op       11969276992 B/op        62974524 allocs/op
+BenchmarkScanDir1CPU/4-4             244           7436106 ns/op         2313185 B/op        10281 allocs/op
+BenchmarkScanDir1CPU_1/4-4             1       37382631294 ns/op     11969276992 B/op     62974524 allocs/op
 ERROR: 2021/03/18 02:01:48.134808 main.go:167: Error reading dirs open /home/user/.dbus: permission denied
-BenchmarkScanDir4CPU/4-4             415           4166606 ns/op         1468867 B/op       6900 allocs/op
-BenchmarkScanDir4CPU_1/4-4             1        50294292032 ns/op       15467018992 B/op        84765488 allocs/op
+BenchmarkScanDir4CPU/4-4             415           4166606 ns/op         1468867 B/op         6900 allocs/op
+BenchmarkScanDir4CPU_1/4-4             1       50294292032 ns/op     15467018992 B/op     84765488 allocs/op
 PASS
-ok      github.com/pehks1980/gb_go2_hw/hw8      98.385s
+
+BenchmarkScanDir1CPU/4-4             183           6908044 ns/op         1807829 B/op         8330 allocs/op
+BenchmarkScanDir1CPU_1/4-4             7        5934505027 ns/op      1602033768 B/op      8651334 allocs/op
+ERROR: 2021/03/18 09:02:04.803054 main.go:180: Error reading dirs open /home/user/.dbus: permission denied
+BenchmarkScanDir4CPU/4-4             266           4151426 ns/op         1630391 B/op         7803 allocs/op
+BenchmarkScanDir4CPU_1/4-4             1       62553125094 ns/op     19036813328 B/op    103812709 allocs/op
+PASS
+ok      github.com/pehks1980/gb_go2_hw/hw8      119.871s
+cpu: Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz
+BenchmarkScanDir1CPU/4-4             307           3571728 ns/op          884902 B/op         3988 allocs/op
+BenchmarkScanDir1CPU_1/4-4             1       82954629190 ns/op     10916638096 B/op     66548141 allocs/op
+BenchmarkScanDir4CPU/4-4             478           3459986 ns/op         1175278 B/op         5660 allocs/op
+BenchmarkScanDir4CPU_1/4-4             1       37560129235 ns/op     10481904480 B/op     58446534 allocs/op
+PASS
+ok      github.com/pehks1980/gb_go2_hw/hw8      132.287s
+
 
 
 # количество элементов в подкаталогах

@@ -9,7 +9,7 @@ import (
 // go test -bench=.
 
 func BenchmarkScanDir1CPU(b *testing.B) {
-	b.Run(strconv.Itoa(runtime.GOMAXPROCS(0)), func(b *testing.B) {
+	b.Run(strconv.Itoa(runtime.GOMAXPROCS(1)), func(b *testing.B) {
 		b.SetParallelism(100)
 		b.RunParallel(func(pb *testing.PB) {
 			for pb.Next() {
@@ -20,11 +20,11 @@ func BenchmarkScanDir1CPU(b *testing.B) {
 }
 
 func BenchmarkScanDir1CPU_1(b *testing.B) {
-	b.Run(strconv.Itoa(runtime.GOMAXPROCS(0)), func(b *testing.B) {
+	b.Run(strconv.Itoa(runtime.GOMAXPROCS(1)), func(b *testing.B) {
 		b.SetParallelism(100)
 		b.RunParallel(func(pb *testing.PB) {
 			for pb.Next() {
-				mn.ScanDir("/home/user")
+				mn.ScanDir("/home/user/django")
 			}
 		})
 	})
@@ -46,7 +46,7 @@ func BenchmarkScanDir4CPU_1(b *testing.B) {
 		b.SetParallelism(10000)
 		b.RunParallel(func(pb *testing.PB) {
 			for pb.Next() {
-				mn.ScanDir("/home/user")
+				mn.ScanDir("/home/user/django")
 			}
 		})
 	})
